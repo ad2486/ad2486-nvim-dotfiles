@@ -1,0 +1,18 @@
+# Arquivos locais do macOS
+.DS_Store
+
+# Temporários de editores
+*.swp
+*.swo
+*~
+*.bak
+
+# Logs gerados localmente
+*.log
+
+# Arquivos locais de ambiente
+.env
+.env.*
+!.env.example
+
+# lazy-lock.json é intencionalmente versionado.
