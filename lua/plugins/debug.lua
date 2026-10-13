@@ -41,6 +41,13 @@ return {
       end,
       cwd = "${workspaceFolder}", stopOnEntry = false,
     }}
+    dap.configurations.c = {{
+      name = "C: executar binário (compile com -g)", type = "codelldb", request = "launch",
+      program = function()
+        return vim.fn.input("Binário: ", vim.fn.expand("%:p:r"), "file")
+      end,
+      cwd = "${workspaceFolder}", stopOnEntry = false,
+    }}
     for _, kind in ipairs({ "pwa-node", "pwa-chrome" }) do
       dap.adapters[kind] = {
         type = "server", host = "127.0.0.1", port = "${port}",

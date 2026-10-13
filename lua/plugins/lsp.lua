@@ -58,6 +58,11 @@ return {
       })
       require("mason-lspconfig").setup(opts)
 
+      -- C/C++: usa o clangd do Xcode Command Line Tools (/usr/bin/clangd), que já
+      -- conhece os headers do SDK do macOS. Não vem do Mason, então o
+      -- automatic_enable não liga ele sozinho.
+      vim.lsp.enable("clangd")
+
       -- Keymaps de LSP só ficam ativos no buffer onde um LSP realmente anexou
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lsp-keymaps", { clear = true }),

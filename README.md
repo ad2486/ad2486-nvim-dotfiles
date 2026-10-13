@@ -31,6 +31,7 @@ e a tecla leader é **Espaço**. Não usa uma distribuição pronta como LazyVim
 | `rg` (ripgrep) e `fd` | Busca de texto e arquivos |
 | `tree-sitter` CLI 0.26.1+ | Compilação de parsers; instalar pelo gerenciador do sistema, não npm |
 | Compilador C, make, curl, tar e unzip | Compilação e instalação de dependências |
+| Xcode Command Line Tools (`clangd`) | LSP, autocomplete e formatação de C |
 | Node.js e npm | Servidores web, Prettier, ESLint e debugger JavaScript |
 | Python 3 | Ferramentas Python e ambiente Hererocks |
 | Go | gopls, gofmt, testes e depuração Go |
@@ -146,6 +147,7 @@ Esses diretórios não pertencem ao repositório de configurações.
 |---|---|---|---|---|
 | JavaScript / TypeScript / JSX / TSX | ts_ls + ESLint quando configurado no projeto | Prettier | Node / Chrome | Jest / Vitest |
 | Python | Pyright + Ruff | Ruff | debugpy | pytest / unittest |
+| C | clangd (do sistema) | clang-format embutido no clangd | CodeLLDB | — |
 | Go | gopls | gofmt | Delve | go test |
 | Rust | rust-analyzer | rustfmt | CodeLLDB | cargo-nextest |
 | Lua | lua_ls | StyLua | — | — |
@@ -156,7 +158,7 @@ Esses diretórios não pertencem ao repositório de configurações.
 | Markdown | — | Prettier | — | — |
 
 O Treesitter carrega na inicialização e inclui parsers de Lua, Vim, help, query,
-JS/TS/TSX, Python, HTML, CSS, JSON, Bash, Markdown, YAML, Rust e Go. JSX usa o filetype
+JS/TS/TSX, Python, HTML, CSS, JSON, Bash, Markdown, YAML, Rust, Go e C. JSX usa o filetype
 `javascriptreact`. Instalar um parser não instala o servidor LSP correspondente.
 
 ## Código e formatação
@@ -174,7 +176,8 @@ JS/TS/TSX, Python, HTML, CSS, JSON, Bash, Markdown, YAML, Rust e Go. JSX usa o f
 | Tab | Aceitar sugestão do Windsurf |
 
 Formatadores: Prettier (JS/TS/JSX/TSX, HTML, CSS, JSON, YAML e Markdown),
-Ruff (Python), StyLua (Lua), gofmt (Go), rustfmt (Rust) e shfmt (shell).
+Ruff (Python), StyLua (Lua), gofmt (Go), rustfmt (Rust), shfmt (shell) e clangd (C,
+via fallback de LSP; lê `.clang-format` do projeto).
 Prettier prefere a instalação local do projeto. Os formatadores leem suas configurações habituais.
 `Espaço uf` afeta somente o buffer atual, durante a sessão.
 
@@ -200,6 +203,7 @@ No teclado do Mac, pode ser necessário usar Fn com as teclas F. Os atalhos com 
 - **Python:** debugpy; a integração procura o ambiente virtual do projeto.
 - **Go:** Delve; escolha executar o pacote ou depurar testes.
 - **Rust:** CodeLLDB. Execute `cargo build` e selecione o executável em `target/debug/`.
+- **C:** CodeLLDB. Compile com `-g` (ex.: `clang -g main.c -o main`) e selecione o executável.
 - **Node:** executar arquivo JS ou conectar a um processo iniciado com `--inspect`.
 - **TypeScript:** conectar ao processo do projeto com `--inspect`, usando o runner/build do projeto e source maps.
 - **Frontend:** inicie o servidor de desenvolvimento, escolha “Frontend: abrir Chrome” e informe a URL.
