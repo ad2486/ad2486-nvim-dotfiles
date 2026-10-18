@@ -5,6 +5,7 @@ return {
       { "<leader>c", group = "Código" }, { "<leader>t", group = "Testes" },
       { "<leader>v", group = "Depuração" }, { "<leader>g", group = "Git" },
       { "<leader>u", group = "Preferências" }, { "<leader>x", group = "Diagnósticos" },
+      { "<leader>b", group = "Abas" },
     } },
   },
   {
