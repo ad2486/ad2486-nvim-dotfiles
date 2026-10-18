@@ -1,14 +1,13 @@
 -- lua/plugins/colorscheme.lua
 
 return {
-  "folke/tokyonight.nvim",
+  "vague-theme/vague.nvim",
   lazy = false,   -- carrega no startup, já que é o tema
   priority = 1000, -- carrega antes dos outros plugins
   config = function()
-    require("tokyonight").setup({
-      style = "storm", -- "storm" | "night" | "moon" | "day"
+    require("vague").setup({
       transparent = false,
     })
-    vim.cmd.colorscheme("tokyonight")
+    vim.cmd.colorscheme("vague")
   end,
 }

@@ -22,7 +22,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "vague" } },
   checker = { enabled = true, notify = false }, -- checa updates de plugin em background
   change_detection = { notify = false },
 })

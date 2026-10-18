@@ -3,7 +3,7 @@
 Configuração modular em Lua para uma experiência de IDE: navegação por código,
 autocomplete, sugestões de IA, formatação, lint, depuração, testes e Git.
 
-Validada em **macOS Apple Silicon com Neovim 0.12.5**. O tema é **Tokyo Night Storm**
+Validada em **macOS Apple Silicon com Neovim 0.12.5**. O tema é **Vague**
 e a tecla leader é **Espaço**. Não usa uma distribuição pronta como LazyVim.
 
 ## Conteúdo
@@ -116,7 +116,7 @@ também procuram ambientes locais como `.venv`.
     │   └── autocmds.lua    # Yank, cursor e criação de diretórios
     └── plugins/
         ├── cmp.lua         # Autocomplete e snippets
-        ├── colorscheme.lua # Tokyo Night Storm
+        ├── colorscheme.lua # Vague
         ├── debug.lua       # DAP, painéis e configurações por linguagem
         ├── editor.lua      # Comentários, pares, guias e which-key
         ├── explorer.lua    # Árvore de arquivos
