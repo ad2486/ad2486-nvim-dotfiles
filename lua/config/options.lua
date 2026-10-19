@@ -16,7 +16,7 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 
 opt.mouse = "a"
-opt.clipboard = "unnamedplus" -- usa o clipboard do sistema (macOS: pbcopy/pbpaste)
+opt.clipboard = "unnamedplus" -- usa o clipboard do sistema (macOS: pbcopy/pbpaste; Wayland: wl-clipboard)
 opt.termguicolors = true
 
 opt.tabstop = 2
