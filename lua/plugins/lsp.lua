@@ -27,6 +27,7 @@ return {
         "bashls",
         "gopls",         -- Go
         "rust_analyzer", -- Rust
+        "ruby_lsp",      -- Ruby (lint/formatação ficam com o RuboCop, em tools.lua)
         "yamlls",        -- YAML
         "ruff",          -- Lint Python
         "eslint",        -- Lint JS/TS com as regras do projeto
@@ -46,6 +47,16 @@ return {
             workspace = { checkThirdParty = false },
           },
         },
+      })
+
+      -- Ruby: ruby-lsp cuida de navegação/hover/autocomplete; o LSP do RuboCop
+      -- (ligado pelo automatic_enable) faz lint e formatação. Desliga lint/formatação
+      -- do ruby-lsp pra não duplicar diagnósticos.
+      -- GEM_HOME: o ruby-lsp roda `bundle install` num bundle próprio (.ruby-lsp/) e,
+      -- sem isso, tenta escrever em /usr/lib/ruby/gems (sem permissão no Arch).
+      vim.lsp.config("ruby_lsp", {
+        init_options = { formatter = "none", linters = {} },
+        cmd = { "sh", "-c", 'GEM_HOME="$(ruby -e "print Gem.user_dir")" exec ruby-lsp' },
       })
 
       -- Pyright cuida de tipos/hover; Ruff fornece lint e ações de correção.

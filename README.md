@@ -34,6 +34,7 @@ e a tecla leader é **Espaço**. Não usa uma distribuição pronta como LazyVim
 | Xcode Command Line Tools (`clangd`) | LSP, autocomplete e formatação de C |
 | Node.js e npm | Servidores web, Prettier, ESLint e debugger JavaScript |
 | Python 3 | Ferramentas Python e ambiente Hererocks |
+| Ruby, RubyGems, Bundler e ERB | ruby-lsp e RuboCop (instalados pelo Mason via `gem`). No Arch: `ruby ruby-bundler ruby-erb` |
 | Go | gopls, gofmt, testes e depuração Go |
 | Rust/Cargo, rustfmt e rust-src | Rust Analyzer, formatação e depuração Rust |
 | cargo-nextest | Execução de testes Rust no Neotest |
@@ -150,6 +151,7 @@ Esses diretórios não pertencem ao repositório de configurações.
 | C | clangd (do sistema) | clang-format embutido no clangd | CodeLLDB | — |
 | Go | gopls | gofmt | Delve | go test |
 | Rust | rust-analyzer | rustfmt | CodeLLDB | cargo-nextest |
+| Ruby | ruby-lsp + RuboCop | RuboCop (via LSP) | — | RSpec |
 | Lua | lua_ls | StyLua | — | — |
 | HTML / CSS | html / cssls | Prettier | — | — |
 | JSON | jsonls | Prettier | — | — |
@@ -158,7 +160,7 @@ Esses diretórios não pertencem ao repositório de configurações.
 | Markdown | — | Prettier | — | — |
 
 O Treesitter carrega na inicialização e inclui parsers de Lua, Vim, help, query,
-JS/TS/TSX, Python, HTML, CSS, JSON, Bash, Markdown, YAML, Rust, Go e C. JSX usa o filetype
+JS/TS/TSX, Python, HTML, CSS, JSON, Bash, Markdown, YAML, Rust, Go, C e Ruby. JSX usa o filetype
 `javascriptreact`. Instalar um parser não instala o servidor LSP correspondente.
 
 ## Código e formatação
@@ -176,8 +178,8 @@ JS/TS/TSX, Python, HTML, CSS, JSON, Bash, Markdown, YAML, Rust, Go e C. JSX usa 
 | Tab | Aceitar sugestão do Windsurf |
 
 Formatadores: Prettier (JS/TS/JSX/TSX, HTML, CSS, JSON, YAML e Markdown),
-Ruff (Python), StyLua (Lua), gofmt (Go), rustfmt (Rust), shfmt (shell) e clangd (C,
-via fallback de LSP; lê `.clang-format` do projeto).
+Ruff (Python), StyLua (Lua), gofmt (Go), rustfmt (Rust), shfmt (shell), RuboCop (Ruby, via
+fallback de LSP; lê `.rubocop.yml` do projeto) e clangd (C, via fallback de LSP; lê `.clang-format` do projeto).
 Prettier prefere a instalação local do projeto. Os formatadores leem suas configurações habituais.
 `Espaço uf` afeta somente o buffer atual, durante a sessão.
 
@@ -222,7 +224,7 @@ No teclado do Mac, pode ser necessário usar Fn com as teclas F. Os atalhos com 
 | Espaço td | Depurar teste (quando o adaptador oferece suporte) |
 | Espaço tq | Parar execução |
 
-Adaptadores: Python (pytest/unittest), Go, Rust (cargo-nextest), Vitest e Jest.
+Adaptadores: Python (pytest/unittest), Go, Rust (cargo-nextest), Ruby (RSpec), Vitest e Jest.
 Pytest, Vitest e Jest devem existir no ambiente/dependências do projeto que os utiliza.
 O runner Rust cargo-nextest já foi instalado. Os testes não são disparados automaticamente ao salvar.
 

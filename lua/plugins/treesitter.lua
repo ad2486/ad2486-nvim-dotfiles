@@ -17,7 +17,7 @@ return {
       "javascript", "typescript", "tsx",
       "python", "html", "css", "json",
       "bash", "markdown", "markdown_inline",
-      "yaml", "rust", "go", "c",
+      "yaml", "rust", "go", "c", "ruby",
     }
 
     require("nvim-treesitter").install(parsers)
@@ -29,7 +29,7 @@ return {
         "javascript", "javascriptreact", "typescript", "typescriptreact",
         "python", "html", "css", "json",
         "sh", "bash", "markdown",
-        "yaml", "rust", "go", "c",
+        "yaml", "rust", "go", "c", "ruby",
       },
       callback = function()
         vim.treesitter.start()

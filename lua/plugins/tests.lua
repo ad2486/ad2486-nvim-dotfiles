@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-neotest/nvim-nio", "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter",
     "nvim-neotest/neotest-python", "fredrikaverpil/neotest-golang", "rouge8/neotest-rust",
-    "marilari88/neotest-vitest", "nvim-neotest/neotest-jest",
+    "marilari88/neotest-vitest", "nvim-neotest/neotest-jest", "olimorris/neotest-rspec",
   },
   keys = {
     { "<leader>tt", function() require("neotest").run.run() end, desc = "Teste mais próximo" },
@@ -24,6 +24,7 @@ return {
         require("neotest-python")({ dap = { justMyCode = false } }),
         require("neotest-golang")({}),
         require("neotest-rust")({}),
+        require("neotest-rspec")({}),
         require("neotest-vitest")({}),
         require("neotest-jest")({
           -- A descoberta padrão usa glob em callback assíncrono, incompatível

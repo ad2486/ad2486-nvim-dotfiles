@@ -3,7 +3,7 @@ return {
   dependencies = { "mason-org/mason.nvim" },
   opts = {
     ensure_installed = {
-      "stylua", "prettier", "ruff", "shfmt", "shellcheck", "eslint-lsp",
+      "stylua", "prettier", "ruff", "shfmt", "shellcheck", "eslint-lsp", "rubocop",
       "debugpy", "delve", "codelldb", "js-debug-adapter",
     },
     auto_update = false,
